@@ -39,9 +39,8 @@ public class Hometask_Lecture3 {
 
         WebElement catalouge = eventDriver.findElement(By.xpath(".//li[@id='subtab-AdminCatalog']/a"));
         builder.moveToElement(catalouge).click().build().perform();
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//li[@id='subtab-AdminCategories']")));
         WebElement categories = eventDriver.findElement(By.xpath(".//li[@id='subtab-AdminCategories']/a"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//li[@id='subtab-AdminCategories']")));
         categories.click();
 
         wait.until(ExpectedConditions.visibilityOf(eventDriver.findElement(By.xpath(".//a[@title='Добавить категорию']"))));
@@ -57,11 +56,9 @@ public class Hometask_Lecture3 {
         wait.until(ExpectedConditions.visibilityOf(eventDriver.findElement(By.xpath(".//button[@data-dismiss='alert']"))));
         WebElement input_name = eventDriver.findElement(By.xpath(".//input[@name='categoryFilter_name']"));
         input_name.sendKeys("TestCategory");
-        WebElement el = eventDriver.findElement(By.cssSelector("td > *:last-child"));
         WebElement search_button = eventDriver.findElement(By.id("submitFilterButtoncategory"));
         search_button.click();
 
-        //wait.until(ExpectedConditions.visibilityOf(el));
         eventDriver.quit();
     }
 }
