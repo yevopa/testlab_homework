@@ -7,11 +7,11 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
-
 public class Hometask_Lecture3 {
 
     public static void main(String[] args) {
+
+        Hometask_Login login = new Hometask_Login();
         WebDriver driver = Hometask_Login.getInitFirefox();
         Actions builder = new Actions(driver);
         WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -24,16 +24,7 @@ public class Hometask_Lecture3 {
             Login Admin Panel
          */
 
-        eventDriver.manage().window().maximize();
-        eventDriver.get("http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/");
-        WebElement field_login = eventDriver.findElement(By.name("email"));
-        field_login.sendKeys("webinar.test@gmail.com");
-
-        WebElement field_pass = eventDriver.findElement(By.name("passwd"));
-        field_pass.sendKeys("Xcg7299bnSmMuRLp9ITw");
-
-        WebElement button = eventDriver.findElement(By.name("submitLogin"));
-        button.click();
+        login.Login(eventDriver);
 
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//li[@id='subtab-AdminCatalog']")));
 

@@ -6,19 +6,10 @@ import org.openqa.selenium.WebElement;
 public class Hometask_AdminPanel {
     public static void main(String[] args) {
 
+        Hometask_Login login = new Hometask_Login();
         WebDriver driver = Hometask_Login.getInitFirefox();
-        /*
-            Login Admin Panel
-         */
-        driver.get("http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/");
-        WebElement field_login = driver.findElement(By.name("email"));
-        field_login.sendKeys("webinar.test@gmail.com");
 
-        WebElement field_pass = driver.findElement(By.name("passwd"));
-        field_pass.sendKeys("Xcg7299bnSmMuRLp9ITw");
-
-        WebElement button = driver.findElement(By.name("submitLogin"));
-        button.click();
+        login.Login(driver);
 
         try {
             Thread.sleep(5000);

@@ -12,15 +12,7 @@ public class Hometask_Login {
         /*
             Login Admin Panel
          */
-        driver.get("http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/");
-       WebElement field_login = driver.findElement(By.name("email"));
-        field_login.sendKeys("webinar.test@gmail.com");
-
-        WebElement field_pass = driver.findElement(By.name("passwd"));
-        field_pass.sendKeys("Xcg7299bnSmMuRLp9ITw");
-
-        WebElement button = driver.findElement(By.name("submitLogin"));
-        button.click();
+        Login(driver);
 
         try {
             Thread.sleep(3000);
@@ -45,6 +37,18 @@ public class Hometask_Login {
     public static WebDriver getInitFirefox() {
         System.setProperty("webdriver.gecko.driver", Hometask_Login.class.getResource("geckodriver.exe").getPath());
         return new FirefoxDriver();
+    }
+
+    public static void Login(WebDriver driver) {
+        driver.get("http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/");
+        WebElement field_login = driver.findElement(By.name("email"));
+        field_login.sendKeys("webinar.test@gmail.com");
+
+        WebElement field_pass = driver.findElement(By.name("passwd"));
+        field_pass.sendKeys("Xcg7299bnSmMuRLp9ITw");
+
+        WebElement button = driver.findElement(By.name("submitLogin"));
+        button.click();
     }
 
 }
