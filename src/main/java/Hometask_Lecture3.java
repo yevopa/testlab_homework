@@ -12,7 +12,7 @@ public class Hometask_Lecture3 {
     public static void main(String[] args) {
 
         Hometask_Login login = new Hometask_Login();
-        WebDriver driver = Hometask_Login.getInitFirefox();
+        WebDriver driver = login.getInitFirefox();
         Actions builder = new Actions(driver);
         WebDriverWait wait = new WebDriverWait(driver, 10);
 
